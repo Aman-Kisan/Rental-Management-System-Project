@@ -1,0 +1,11 @@
+payment_id,rentee_id,paid_on,payment_type
+1,1,2023-12-19,"Monthly Payment"
+2,2,2024-1-17,"Advance Payment"
+3,1,2024-1-20,"Monthly Payment"
+4,2,2024-2-17,"Monthly Payment"
+5,1,2024-2-18,"Monthly Payment"
+6,3,2024-3-1,"Advance Payment"
+7,2,2024-3-17,"Monthly Payment"
+8,3,2024-4-1,"Monthly Payment"
+9,3,2024-5-01,"Monthly Payment"
+10,4,2024-5-29,"Monthly Payment"

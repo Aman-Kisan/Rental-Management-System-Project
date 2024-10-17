@@ -1,0 +1,5 @@
+rentee_id,rentee_name,shifted_on,left_on,advance_given,house_no,rent_amount
+1,"Shyam",2023-11-19,2024-2-19,NO,1,6000
+2,"Babu Rao",2024-01-17,2024-4-17,YES,2,6000
+3,"Raju",2024-03-01,NULL,YES,1,6000
+4,"Munna",2024-04-29,NULL,NO,2,6000
