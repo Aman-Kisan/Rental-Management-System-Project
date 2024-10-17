@@ -13,6 +13,6 @@ Type the following lines step by step
 
 1.  mysql -u root -p 
 
-2.  source D:\Rental Management System Project\mysql\Script\Tables.sql
+2.  source (path to the sql script file without single quotes)
 
 Do this for all the above files to create the Tables, Functions, Procedures and Views
