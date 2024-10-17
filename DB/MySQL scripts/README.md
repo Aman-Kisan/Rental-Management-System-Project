@@ -11,13 +11,14 @@ Open the SQL script files and RUN it.
 
 Type the following lines step by step
 
-1.  mysql -u root -p
-[]!(https://github.com/Aman-Kisan/Rental-Management-System-Project/blob/main/DB/MySQL%20scripts/pic1.jpg)
+1.  mysql -u root -p <br>
+![](https://github.com/Aman-Kisan/Rental-Management-System-Project/blob/main/DB/MySQL%20scripts/pic1.jpg)
 
-2.  source (path to the sql script file without single quotes)
-[]!(https://github.com/Aman-Kisan/Rental-Management-System-Project/blob/main/DB/MySQL%20scripts/pic2.jpg)
+2.  source (path to the sql script file without single quotes)<br>
+![](https://github.com/Aman-Kisan/Rental-Management-System-Project/blob/main/DB/MySQL%20scripts/pic2.jpg)
 
 Do this for all the above files to create the Tables, Functions, Procedures and Views
 
 ## How to insert data into tables ?
 
+![](https://github.com/Aman-Kisan/Rental-Management-System-Project/blob/main/DB/MySQL%20scripts/pic3.jpg)
