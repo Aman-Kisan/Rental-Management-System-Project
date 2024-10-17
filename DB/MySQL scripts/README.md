@@ -11,8 +11,13 @@ Open the SQL script files and RUN it.
 
 Type the following lines step by step
 
-1.  mysql -u root -p 
+1.  mysql -u root -p
+[]!()
 
 2.  source (path to the sql script file without single quotes)
+[]!()
 
 Do this for all the above files to create the Tables, Functions, Procedures and Views
+
+## How to insert data into tables ?
+
