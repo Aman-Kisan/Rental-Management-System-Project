@@ -9,8 +9,9 @@ Open the SQL script files and RUN it.
 
 ### Using SQL Shell
 
-1.  mysql -u root -p
-    Then enter your password
+Type the following lines step by step
+
+1.  mysql -u root -p 
 
 2.  source D:\Rental Management System Project\mysql\Script\Tables.sql
 
