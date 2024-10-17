@@ -22,3 +22,5 @@ Do this for all the above files to create the Tables, Functions, Procedures and 
 ## How to insert data into tables ?
 
 ![](https://github.com/Aman-Kisan/Rental-Management-System-Project/blob/main/DB/MySQL%20scripts/pic3.jpg)
+
+Do this for all the tables data by giving thier respective paths.
