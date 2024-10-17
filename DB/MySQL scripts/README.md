@@ -12,6 +12,6 @@ Open the SQL script files and RUN it.
 1.  mysql -u root -p
     Then enter your password
 
-2.  source D:\Codes & Programs\Python\#Rental Management System Project\mysql\Script\Tables.sql
+2.  source D:\#Rental Management System Project\mysql\Script\Tables.sql
 
 Do this for all the above files to create the Tables, Functions, Procedures and Views
