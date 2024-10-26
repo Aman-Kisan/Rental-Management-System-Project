@@ -1,7 +1,7 @@
 # Rental-Management-System-Project
-It is a GUI based application that is build for household rental management
+It is a GUI based application build using Python and MySQL RDBMS for household rental and electricity usage management.
 
-# Description
+## Description
 
 The app provides an interface to manage a database that stores the rentee's details, their monthly rental payments, their monthly electricity usage and its payments.
 
