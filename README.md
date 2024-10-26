@@ -18,6 +18,8 @@ The home page contains four buttons for adding details of new rentee, details of
 
 This allows the user to add details (like:- Name,date they shifted etc) about the rentee.
 
+The radiobutton <strong>North Pole</strong> sets the house number as 1 and <strong>South Pole</strong> sets 2.
+
 ### Rental Payment Page
 
 ![](https://github.com/Aman-Kisan/Rental-Management-System-Project/blob/main/screenshots/rental_payment_page.jpg)
