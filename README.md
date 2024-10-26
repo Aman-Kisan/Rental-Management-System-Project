@@ -24,6 +24,8 @@ This allows the user to add details (like:- Name,date they shifted etc) about th
 
 This allows the user to make entry for the monthly payment received from the rentee.
 
+The radiobutton <strong>Monthly</strong> is to be selected when payment made is a monthly payment and <strong>Advance</strong> is selected when payment made is an advance given by the rentee for reseving the house.
+
 ### Electricity Usage Page
 
 ![](https://github.com/Aman-Kisan/Rental-Management-System-Project/blob/main/screenshots/electricity_use_page.jpg)
