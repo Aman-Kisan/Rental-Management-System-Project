@@ -32,10 +32,10 @@ The radiobutton <strong>Monthly</strong> is to be selected when payment made is 
 
 ![](https://github.com/Aman-Kisan/Rental-Management-System-Project/blob/main/screenshots/electricity_use_page.jpg)
 
-This page allows to make entry for the electricity units that is recorded every end of the month from the houses.
+This page is for to make entry for the electricity units that is recorded every end of the month from the houses.
 
 ### Electricity Payment Page
 
 ![](https://github.com/Aman-Kisan/Rental-Management-System-Project/blob/main/screenshots/electricity_payment_page.jpg)
 
-This page allows to make entry for the payment made by the rentee for their electricity usage.
+This page is for to make entry for the payment made by the rentee for their electricity usage.
