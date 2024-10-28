@@ -5,8 +5,7 @@ USE `rental_management_system`;
 -- (1)
 CREATE TABLE IF NOT EXISTS `electric_slab_price` (
   `slab_length` INT NOT NULL,
-  `amount` FLOAT NOT NULL COMMENT 'Stores the price per unit of slab corresponding to it.')
-ENGINE = InnoDB;
+  `amount` FLOAT NOT NULL COMMENT 'Stores the price per unit of slab corresponding to it.');
 
 -- (2) 
 CREATE TABLE IF NOT EXISTS `rentee_details` (
@@ -16,8 +15,7 @@ CREATE TABLE IF NOT EXISTS `rentee_details` (
   `left_on` DATE NULL,
   `advance_given` VARCHAR(3) NULL,
   `rent_amount` FLOAT NULL DEFAULT 6000,
-  PRIMARY KEY (`rentee_id`))
-ENGINE = InnoDB;
+  PRIMARY KEY (`rentee_id`));
 
 -- (3)
 CREATE TABLE IF NOT EXISTS `rental_payments` (
@@ -29,10 +27,8 @@ CREATE TABLE IF NOT EXISTS `rental_payments` (
   INDEX `rental_payment_rentee_id_idx` (`rentee_id` ASC) VISIBLE,
   CONSTRAINT `rentee_details.rentee_id to rental_payment_rentee_id`
     FOREIGN KEY (`rentee_id`)
-    REFERENCES `mydb`.`rentee_details` (`rentee_id`)
-    ON DELETE CASCADE
-    ON UPDATE RESTRICT)
-ENGINE = InnoDB;
+    REFERENCES `rentee_details` (`rentee_id`)
+ON DELETE CASCADE ON UPDATE RESTRICT);
 
 -- (4)
 CREATE TABLE IF NOT EXISTS `electricity_used` (
@@ -48,10 +44,9 @@ CREATE TABLE IF NOT EXISTS `electricity_used` (
   INDEX `rentees_detail.rentee_id to electricity_use_payment.rentee__idx` (`rentee_id` ASC) VISIBLE,
   CONSTRAINT `rentee_details.rentee_id to electricity_used.rentee_id`
     FOREIGN KEY (`rentee_id`)
-    REFERENCES `mydb`.`rentee_details` (`rentee_id`)
+    REFERENCES `rentee_details` (`rentee_id`)
     ON DELETE CASCADE
-    ON UPDATE RESTRICT)
-ENGINE = InnoDB;
+    ON UPDATE RESTRICT);
 
 -- (5)
 CREATE TABLE IF NOT EXISTS `electricity_payment` (
@@ -64,7 +59,6 @@ CREATE TABLE IF NOT EXISTS `electricity_payment` (
   INDEX `electricity_used.E_id to electricity_payment.e_id_idx` (`e_id` ASC) VISIBLE,
   CONSTRAINT `electricity_used.E_id to electricity_payment.e_id`
     FOREIGN KEY (`e_id`)
-    REFERENCES `mydb`.`electricity_used` (`E_id`)
+    REFERENCES `electricity_used` (`E_id`)
     ON DELETE CASCADE
-    ON UPDATE RESTRICT)
-ENGINE = InnoDB;
+    ON UPDATE RESTRICT);
