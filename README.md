@@ -1,3 +1,5 @@
+- CURRENTLY A LOT OF PROBLEMS ARE BEING FACED IN THIS PROJECT 
+
 # Rental Management System Project
 It is a GUI based application build using Python and MySQL RDBMS for household rental and electricity usage management.
 
