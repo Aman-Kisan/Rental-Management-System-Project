@@ -7,8 +7,7 @@ First install MySQL into your device from the official MySQL page (https://dev.m
 ### Using Workbench
 Open the SQL script files and RUN it.
 
-### Using SQL Shell
-
+### Using MySQL command line client
 Type the following lines step by step
 
 1.  mysql -u root -p <br>
