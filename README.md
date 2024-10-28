@@ -1,4 +1,4 @@
-# Rental-Management-System-Project
+# Rental Management System Project
 It is a GUI based application build using Python and MySQL RDBMS for household rental and electricity usage management.
 
 ## Description
