@@ -20,7 +20,7 @@ Do this for all the above files to create the Tables, Functions, Procedures and 
 
 ## How to insert data into tables ?
 
-- Check out this page and see how the csv file is imported into a table<\b>
+- Check out this page and see how the csv file is imported into a table<br>
   (https://www.mysqltutorial.org/mysql-basics/import-csv-file-mysql-table/#:~:text=Importing%20a%20CSV%20file%20on%20the%20MySQL%20server%20into%20a%20table%20using%20LOAD%20DATA%20INFILE%20statement)
 
 ![](https://github.com/Aman-Kisan/Rental-Management-System-Project/blob/main/DB/MySQL%20scripts/pic3.jpg)
