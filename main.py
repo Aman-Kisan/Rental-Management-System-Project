@@ -5,7 +5,7 @@ from tkinter import messagebox
 
 root = tk.Tk()
 root.title("Rental Management System Project")
-root.geometry("440x330")    #height x width
+root.geometry("480x360")    #height x width
 root.configure(bg='lightblue')
 
 root.columnconfigure(0,weight=1)
