@@ -4,7 +4,7 @@ It is a GUI based application build using Python and MySQL RDBMS for household r
 
 ## Steps to follow
 
-- Install MySQL in your system then, follow the steps given in DB/Scripts/README.md to upload the tables and their records(if required), views, stored procedures and functions.
+- Install MySQL in your system then, follow the steps given in 'DB/Scripts/README.md' to upload the tables and their records(if required), views, stored procedures and functions.
 - Second, install the required modules from the requirements file in your python virtual environment.
 - Then, RUN the 'main.py' file.
 
