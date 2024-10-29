@@ -92,6 +92,10 @@ def Add_New_Rentee():
     update_btn = ttk.Button(frame2,text="Update",width=20,command=lambda: confirm_message_box(RMS.new_comer,rentee_name_value,date_shifted_value,advance_payment_value,house_of_choice_value))
     update_btn.grid(row=6,column=1,padx=10,pady=10)
 
+    global update_ack
+    update_ack = tk.Label(frame2,text='Designed by Aman Kisan',bg='lightblue')
+    update_ack.grid(row=7,column=0,columnspan=2,pady=10)
+
 def Rental_Payment():
 
     frame3 = tk.Frame(root,bg='lightblue')
