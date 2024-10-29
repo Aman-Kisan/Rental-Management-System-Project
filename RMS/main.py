@@ -66,9 +66,13 @@ if __name__ != '__main__':
 
         with connector.connect(host="localhost",user=USER,password=PASS,database=DB) as myDB:
             push_query = myDB.cursor()
-            push_query.callproc(procname=InsertNewRentee,args=(R_NAME,Date_shifted,Advance_ack,HouseNumber))
+            try:
+                push_query.callproc(procname=InsertNewRentee,args=(R_NAME,Date_shifted,Advance_ack,HouseNumber))
+            except MysqlErrors.IntegrityError:
+                return 'Update Failed'
             myDB.commit()               #  by default Connector/Python does not autocommit
-        
+
+        return 'Update Successfull'
 
     #2. data entry to rental_payment
     def rent_payment(argms):
