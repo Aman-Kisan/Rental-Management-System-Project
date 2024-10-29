@@ -7,6 +7,8 @@ CREATE TABLE IF NOT EXISTS `electric_slab_price` (
   `slab_length` INT NOT NULL,
   `amount` FLOAT NOT NULL COMMENT 'Stores the price per unit of slab corresponding to it.');
 
+INSERT INTO `electric_slab_price`(slab_length,amount) VALUES (50,6),(100,5);
+
 -- (2) 
 CREATE TABLE IF NOT EXISTS `rentee_details` (
   `rentee_id` INT NOT NULL AUTO_INCREMENT,
