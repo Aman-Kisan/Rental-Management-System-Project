@@ -13,7 +13,7 @@ It is a GUI based application build using Python and MySQL RDBMS for household r
 
 The app provides an interface to manage a database that stores the rentee's details, their monthly rental payments, their monthly electricity usage and its payments.
 
-It is designed to manage two houses which you can change in the code ("/main.py") by adding a line for the radiobutton and set the value of house number.
+The database used in here is MySQL. The app doesn't provide you the remote access to your database for storing information, rather it requires to have the database in your device.
 
 ### Home Page 
 ![](https://github.com/Aman-Kisan/Rental-Management-System-Project/blob/main/screenshots/home_page.jpg)
