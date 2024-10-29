@@ -11,6 +11,7 @@ CREATE TABLE IF NOT EXISTS `electric_slab_price` (
 CREATE TABLE IF NOT EXISTS `rentee_details` (
   `rentee_id` INT NOT NULL AUTO_INCREMENT,
   `rentee_name` VARCHAR(50) NULL,
+  `house_no` INT NOT NULL,
   `shifted_on` DATE NULL,
   `left_on` DATE NULL,
   `advance_given` VARCHAR(3) NULL,
