@@ -43,17 +43,17 @@ def confirm_message_box(*args):
 def Main_Frame():
     frame1 = tk.Frame(root,bg="lightblue")
     frame1.grid(row=1,column=0,pady=40)
-
-    button1 = ttk.Button(frame1,text="Add New Rentee",command=lambda: [Add_New_Rentee(),frame1.destroy()],width=20)
+    
+    button1 = ttk.Button(frame1,text="Add New Rentee",command=lambda: [Add_New_Rentee(),frame1.destroy(),title.config(text="Add New Rentee",font=(14))],width=20)
     button1.grid(row=1,column=0,padx=30,pady=10)
 
-    button2 = ttk.Button(frame1,text="Rental Payment",command=lambda:[Rental_Payment(),frame1.destroy()],width=20)
+    button2 = ttk.Button(frame1,text="Rental Payment",command=lambda:[Rental_Payment(),frame1.destroy(),title.config(text="Rental Payment",font=(14))],width=20)
     button2.grid(row=1,column=1,padx=30,pady=10)
 
-    button3 = ttk.Button(frame1,text="Electricity Use",command=lambda:[Electricity_Use(),frame1.destroy()],width=20)
+    button3 = ttk.Button(frame1,text="Electricity Use",command=lambda:[Electricity_Use(),frame1.destroy(),title.config(text="Electricity Use",font=(14))],width=20)
     button3.grid(row=2,column=0,padx=30,pady=10)
 
-    button4 = ttk.Button(frame1,text="Electricity Payment",command=lambda: [Electricity_Payment(),frame1.destroy()],width=20)
+    button4 = ttk.Button(frame1,text="Electricity Payment",command=lambda: [Electricity_Payment(),frame1.destroy(),title.config(text="Electricity Payment",font=(14))],width=20)
     button4.grid(row=2,column=1,padx=30,pady=10)
 
     button5 = ttk.Button(frame1,text="Exit",command=root.quit,width=20)
@@ -86,7 +86,7 @@ def Add_New_Rentee():
     house_of_choice_radio2 = ttk.Radiobutton(frame2,variable=house_of_choice_value,text='South Pole',value='2').grid(row=5,column=1,pady=5)
     house_of_choice_label.grid(row=4,column=0)
 
-    back_btn = ttk.Button(frame2,text="Back",command= lambda: [Main_Frame(),frame2.destroy()],width=20)
+    back_btn = ttk.Button(frame2,text="Back",command= lambda: [Main_Frame(),frame2.destroy(),title.config(text="Rental Management System",font=(20))],width=20)
     back_btn.grid(row=6,column=0,padx=10,pady=10)
 
     update_btn = ttk.Button(frame2,text="Update",width=20,command=lambda: confirm_message_box(RMS.new_comer,rentee_name_value,date_shifted_value,advance_payment_value,house_of_choice_value))
@@ -117,7 +117,7 @@ def Rental_Payment():
     radio2 = ttk.Radiobutton(frame3,variable=payment_type_val,value='Advance Payment',text='Advance').grid(row=3,column=1)
     payment_type_lbl.grid(row=2,column=0,pady=5)
 
-    back_btn = ttk.Button(frame3,text="Back",command= lambda: [Main_Frame(),frame3.destroy()],width=20)
+    back_btn = ttk.Button(frame3,text="Back",command= lambda: [Main_Frame(),frame3.destroy(),title.config(text="Rental Management System",font=(20))],width=20)
     back_btn.grid(row=4,column=0,padx=10,pady=15)
 
     update_btn = ttk.Button(frame3,text="Update",width=20,command=lambda: confirm_message_box(RMS.rent_payment,r_name_val,payment_date_val,payment_type_val))
@@ -148,7 +148,7 @@ def Electricity_Use():
     date_rec_lbl.grid(row=2,column=0,pady=5,padx=10)
     date_rec_val.grid(row=2,column=1)
 
-    back_btn = ttk.Button(frame4,text="Back",command= lambda: [Main_Frame(),frame4.destroy()],width=20)
+    back_btn = ttk.Button(frame4,text="Back",command= lambda: [Main_Frame(),frame4.destroy(),title.config(text="Rental Management System",font=(20))],width=20)
     back_btn.grid(row=3,column=0,padx=10,pady=15)
 
     update_btn = ttk.Button(frame4,text="Update",width=20,command=lambda: confirm_message_box(RMS.electric_use,r_name_val,c_unit_val,date_rec_val))
@@ -178,7 +178,7 @@ def Electricity_Payment():
     payment_date_lbl.grid(row=2,column=0,pady=5,padx=10)
     payment_date_val.grid(row=2,column=1)
 
-    back_btn = ttk.Button(frame5,text="Back",command= lambda: [Main_Frame(),frame5.destroy()],width=20)
+    back_btn = ttk.Button(frame5,text="Back",command= lambda: [Main_Frame(),frame5.destroy(),title.config(text="Rental Management System",font=(20))],width=20)
     back_btn.grid(row=3,column=0,padx=10,pady=15)
 
     update_btn = ttk.Button(frame5,text="Update",width=20,command=lambda: confirm_message_box(RMS.electric_payment,r_name_val,amount_paid_val,payment_date_val))
