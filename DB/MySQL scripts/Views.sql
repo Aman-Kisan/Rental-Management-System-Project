@@ -32,7 +32,8 @@ CREATE VIEW `rental_management_system`.`house_not_on_rent_status` AS
     SELECT 
         r1.house_no,
         r1.rentee_id as r1_rentee_id,
-        r1.rentee_name as r1_rentee_name,r1.left_on,
+        r1.rentee_name as r1_rentee_name,
+        r1.left_on,
         r2.rentee_id as r2_rentee_id,
         r2.rentee_name as r2_rentee_name,
         r2.shifted_on,
