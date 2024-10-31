@@ -49,8 +49,8 @@ BEGIN
     END IF;
 	
     SET c_unit = FLOOR(c_unit);
-    INSERT INTO `electricity_used`(rentee_id,previous_unit,current_unit,used_unit,amount,unit_recorded_on)
-    VALUES(R_id,p_unit,c_unit,(c_unit-p_unit),(c_unit-p_unit)*price_per_unit,recorded_on);
+    INSERT INTO `electricity_used`(rentee_id,previous_unit,current_unit,used_unit,usage_status,amount,unit_recorded_on)
+    VALUES(R_id,p_unit,c_unit,(c_unit-p_unit),ElectricityUsageStatus(c_unit-p_unit),(c_unit-p_unit)*price_per_unit,recorded_on);
     
 END//
 
@@ -62,3 +62,15 @@ BEGIN
 	SELECT rentee_id INTO R_id FROM `rentee_details` WHERE rentee_name=R_name;
     INSERT INTO `rental_payments`(rentee_id,paid_on,payment_type) VALUES(R_id,Paid_on,Payment_type); 
 END//
+
+-- (5)
+CREATE PROCEDURE `RenteeLeavingHouse` (IN R_name VARCHAR(50),IN date_of_leave DATE)
+COMMENT 'To update the rentee house leaving date in rentee_details table'
+BEGIN
+	DECLARE R_id INT;
+    
+    SELECT rentee_id INTO R_id FROM `rentee_details` WHERE rentee_name = R_name;
+    UPDATE `rentee_details` SET `left_on` = date_of_leave WHERE rentee_id = R_id;
+END//
+
+DELIMITER ;

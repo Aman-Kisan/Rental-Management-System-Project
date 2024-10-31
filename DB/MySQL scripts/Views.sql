@@ -24,4 +24,13 @@ VIEW `rental_management_system`.`electricity_uses_and_payments` AS
         `t2`.`paid_on` AS `paid_on`
     FROM
         (`rental_management_system`.`electricity_used` `t1`
-        LEFT JOIN `rental_management_system`.`electricity_payment` `t2` ON ((`t1`.`E_id` = `t2`.`e_id`)))
+        LEFT JOIN `rental_management_system`.`electricity_payment` `t2` ON ((`t1`.`E_id` = `t2`.`e_id`)));
+
+-- (2)
+
+CREATE VIEW `rental_management_system`.`house_not_on_rent_status` AS
+SELECT r1.house_no,r1.rentee_id as r1_rentee_id,r1.rentee_name as r1_rentee_name,r1.left_on,
+r2.rentee_id as r2_rentee_id,r2.rentee_name as r2_rentee_name,r2.shifted_on,
+datediff(r2.shifted_on,r1.left_on) as `Not On Rent For(in days)`
+FROM rentee_details r1 JOIN rentee_details r2 ON r1.house_no = r2.house_no 
+WHERE r1.rentee_id < r2.rentee_id ORDER BY r1.rentee_id;
