@@ -10,8 +10,15 @@ root.configure(bg='lightblue')
 
 root.columnconfigure(0,weight=1)
 
-title = tk.Label(root,text="Rental Management System",bg="lightblue",font=(20))
-title.grid(row=0,column=0,sticky="ew",pady=20)
+frame0 = tk.Frame(root,bg="lightblue")
+frame0.grid(row=0,column=0,sticky="ew",pady=20)
+title = tk.Label(frame0,text="Rental Management System",bg="lightblue",font=(20))
+title.pack()
+
+footer_frame = tk.Frame(root,bg="lightblue")
+footer_frame.grid(row=2,column=0)
+update_ack = tk.Label(footer_frame,text='Designed by Aman Kisan',bg='lightblue')
+update_ack.pack()
 
 
 def is_there_empty(args):
@@ -27,7 +34,7 @@ def update_database(args):
     update_ack.config(text=DB_msg,fg='red')
     
 def confirm_message_box(*args):
-    signal = is_there_empty(args[1::])
+    signal = is_there_empty(tuple(args[1::]))
 
     if signal:
         root2 = tk.Tk()
@@ -37,13 +44,15 @@ def confirm_message_box(*args):
 
         root2.columnconfigure(0,weight=1)
 
-        confirm_button = ttk.Button(root2,text='Confirm Update',width=20,command= lambda: update_database(args)).grid(row=0,column=0,padx=10,pady=30)
+        confirm_button = ttk.Button(root2,text='Confirm Update',width=20,command= lambda: update_database(tuple(args)))
+        confirm_button.grid(row=0,column=0,padx=10,pady=30)
         # cancel_button = ttk.Button(root2,text='Cancel Update',width=20,command= root2.quit).grid(row=0,column=1,padx=10,pady=30)
 
 def Main_Frame():
+
     frame1 = tk.Frame(root,bg="lightblue")
     frame1.grid(row=1,column=0,pady=40)
-    
+
     button1 = ttk.Button(frame1,text="Add New Rentee",command=lambda: [Add_New_Rentee(),frame1.destroy(),title.config(text="Add New Rentee",font=(14))],width=20)
     button1.grid(row=1,column=0,padx=30,pady=10)
 
@@ -92,9 +101,9 @@ def Add_New_Rentee():
     update_btn = ttk.Button(frame2,text="Update",width=20,command=lambda: confirm_message_box(RMS.new_comer,rentee_name_value,date_shifted_value,advance_payment_value,house_of_choice_value))
     update_btn.grid(row=6,column=1,padx=10,pady=10)
 
-    global update_ack
-    update_ack = tk.Label(frame2,text='Designed by Aman Kisan',bg='lightblue')
-    update_ack.grid(row=7,column=0,columnspan=2,pady=10)
+    # global update_ack
+    # update_ack = tk.Label(frame2,text='Designed by Aman Kisan',bg='lightblue')
+    # update_ack.grid(row=7,column=0,columnspan=2,pady=10)
 
 def Rental_Payment():
 
@@ -123,9 +132,9 @@ def Rental_Payment():
     update_btn = ttk.Button(frame3,text="Update",width=20,command=lambda: confirm_message_box(RMS.rent_payment,r_name_val,payment_date_val,payment_type_val))
     update_btn.grid(row=4,column=1,padx=10,pady=15)
 
-    global update_ack
-    update_ack = tk.Label(frame3,text='Designed by Aman Kisan',bg='lightblue')
-    update_ack.grid(row=5,column=0,columnspan=2,pady=10)
+    # global update_ack
+    # update_ack = tk.Label(frame3,text='Designed by Aman Kisan',bg='lightblue')
+    # update_ack.grid(row=5,column=0,columnspan=2,pady=10)
 
 def Electricity_Use():
 
@@ -154,9 +163,9 @@ def Electricity_Use():
     update_btn = ttk.Button(frame4,text="Update",width=20,command=lambda: confirm_message_box(RMS.electric_use,r_name_val,c_unit_val,date_rec_val))
     update_btn.grid(row=3,column=1,padx=10,pady=15)
 
-    global update_ack
-    update_ack = tk.Label(frame4,text='Designed by Aman Kisan',bg='lightblue')
-    update_ack.grid(row=5,column=0,columnspan=2,pady=10)
+    # global update_ack
+    # update_ack = tk.Label(frame4,text='Designed by Aman Kisan',bg='lightblue')
+    # update_ack.grid(row=5,column=0,columnspan=2,pady=10)
 
 def Electricity_Payment():
     frame5 = tk.Frame(root,bg='lightblue')
@@ -184,9 +193,9 @@ def Electricity_Payment():
     update_btn = ttk.Button(frame5,text="Update",width=20,command=lambda: confirm_message_box(RMS.electric_payment,r_name_val,amount_paid_val,payment_date_val))
     update_btn.grid(row=3,column=1,padx=10,pady=15)
 
-    global update_ack
-    update_ack = tk.Label(frame5,text='',bg='lightblue')
-    update_ack.grid(row=5,column=0,columnspan=2,pady=10)
+    # global update_ack
+    # update_ack = tk.Label(frame5,text='',bg='lightblue')
+    # update_ack.grid(row=5,column=0,columnspan=2,pady=10)
 
 Main_Frame()
 
