@@ -3,7 +3,7 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter import messagebox
 
-def setBgColor(clr):        # methods are to be written in this writing style
+def setBgColor(clr):       
     return lambda: clr
 
 matchBgColor = setBgColor("lightgreen")
