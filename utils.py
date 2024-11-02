@@ -5,7 +5,7 @@ from tkinter import messagebox
 def setBgColor(clr):
     return lambda: clr
 
-matchBgColor = setBgColor("lightpink")
+matchBgColor = setBgColor("lightpink")        # this will the change the background color 
 
 def initiate():
     root = tk.Tk()
