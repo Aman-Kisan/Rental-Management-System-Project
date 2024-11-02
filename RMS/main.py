@@ -67,12 +67,34 @@ if __name__ != '__main__':
         with connector.connect(host="localhost",user=USER,password=PASS,database=DB) as myDB:
             push_query = myDB.cursor()
             try:
-                push_query.callproc(procname=InsertNewRentee,args=(R_NAME,Date_shifted,Advance_ack,HouseNumber))
+                push_query.callproc(procname='InsertNewRentee',args=(R_NAME,Date_shifted,Advance_ack,HouseNumber))
             except MysqlErrors.IntegrityError:
                 return 'Update Failed'
             myDB.commit()               #  by default Connector/Python does not autocommit
 
-        return 'Update Successfull'
+        return 'Update Successful'
+        
+    
+    # for updating the rentee leaving date
+    def updateRenteeLeavingDate(argms):
+        R_NAME = argms[0].get()
+        DataTypeChecker(R_NAME,"str")
+
+        Date_Left = argms[1].get()
+        DataTypeChecker(Date_Left,"date")
+        date = Date_Left.split('-')
+        date_list = datetime(int(date[2]),int(date[1]),int(date[0]))
+        Date_Left=date_list.strftime("%Y-%m-%d")
+
+        with connector.connect(host="localhost",user=USER,password=PASS,database=DB) as myDB:
+            push_query = myDB.cursor()
+            try:
+                push_query.callproc(procname='UpdateRenteeDetails',args=(R_NAME,Date_Left))
+            except MysqlErrors.IntegrityError:
+                return 'Update Failed'
+            myDB.commit()               #  by default Connector/Python does not autocommit
+
+        return 'Update Successful'
 
     #2. data entry to rental_payment
     def rent_payment(argms):
@@ -121,7 +143,7 @@ if __name__ != '__main__':
             except MysqlErrors.IntegrityError:
                 return 'Update Failed'
             myDB.commit()
-        return 'Update Successfull'
+        return 'Update Successful'
 
 
     def electric_payment(argms):
