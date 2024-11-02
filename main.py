@@ -1,79 +1,75 @@
 import RMS
 import tkinter as tk
 from tkinter import ttk
-from tkinter import messagebox
+from utils import *
 
-def setBgColor(clr):       
-    return lambda: clr
+root,title = initiate()
 
-matchBgColor = setBgColor("lightgreen")
+def mainFrame():
 
-root = tk.Tk()
-root.title("Rental Management System Project")
-root.geometry("480x360")    #height x width
-root.configure(bg=matchBgColor())
-
-root.columnconfigure(0,weight=1)
-
-frame0 = tk.Frame(root,bg=matchBgColor())
-frame0.grid(row=0,column=0,sticky="ew",pady=20)
-title = tk.Label(frame0,text="Rental Management System",bg=matchBgColor(),font=(20))
-title.pack()
-
-footer_frame = tk.Frame(root,bg=matchBgColor())
-footer_frame.grid(row=2,column=0)
-update_ack = tk.Label(footer_frame,text='Designed by Aman Kisan',bg=matchBgColor())
-update_ack.pack()
-
-
-def is_There_Empty(args):
-    for value in args:
-        if len(value.get()) == 0:
-            messagebox.showwarning('Empty box',message='No values entered - ALL ENTRIES ARE MANDATORY TO BE FILLED')
-            return 0
-    return 1
-
-def update_Database(args):
-    DB_func = args[0]
-    DB_msg = DB_func(args[1::])
-    update_ack.config(text=DB_msg,fg='red')
-    
-def confirm_message_box(*args):
-    signal = is_There_Empty(tuple(args[1::]))
-
-    if signal:
-        root2 = tk.Tk()
-        root2.title('Do you confirm ?')
-        root2.geometry('250x100')
-        root2.config(bg=matchBgColor())
-
-        root2.columnconfigure(0,weight=1)
-
-        confirm_button = ttk.Button(root2,text='Confirm Update',width=20,command= lambda: update_Database(tuple(args)))
-        confirm_button.grid(row=0,column=0,padx=10,pady=30)
-        # cancel_button = ttk.Button(root2,text='Cancel Update',width=20,command= root2.quit).grid(row=0,column=1,padx=10,pady=30)
-
-def Main_Frame():
+    root.geometry("480x360")
 
     frame1 = tk.Frame(root,bg=matchBgColor())
     frame1.grid(row=1,column=0,pady=40)
 
-    button1 = ttk.Button(frame1,text="Add New Rentee",command=lambda: [Add_New_Rentee(),frame1.destroy(),title.config(text="Add New Rentee",font=(14))],width=20)
+    button1 = ttk.Button(frame1,text="Rentee Details",command=lambda: [renteeDetailPage(),frame1.destroy(),title.config(text="Rentee Details",font=(14))],width=20)
     button1.grid(row=1,column=0,padx=30,pady=10)
 
-    button2 = ttk.Button(frame1,text="Rental Payment",command=lambda:[Rental_Payment(),frame1.destroy(),title.config(text="Rental Payment",font=(14))],width=20)
+    button2 = ttk.Button(frame1,text="Rental Payment",command=lambda:[rentalPaymentPage(),frame1.destroy(),title.config(text="Rental Payment",font=(14))],width=20)
     button2.grid(row=1,column=1,padx=30,pady=10)
 
-    button3 = ttk.Button(frame1,text="Electricity Use",command=lambda:[Electricity_Use(),frame1.destroy(),title.config(text="Electricity Use",font=(14))],width=20)
+    button3 = ttk.Button(frame1,text="Electricity Use",command=lambda:[electricityUsedPage(),frame1.destroy(),title.config(text="Electricity Use",font=(14))],width=20)
     button3.grid(row=2,column=0,padx=30,pady=10)
 
-    button4 = ttk.Button(frame1,text="Electricity Payment",command=lambda: [Electricity_Payment(),frame1.destroy(),title.config(text="Electricity Payment",font=(14))],width=20)
+    button4 = ttk.Button(frame1,text="Electricity Payment",command=lambda: [electricityPaymentPage(),frame1.destroy(),title.config(text="Electricity Payment",font=(14))],width=20)
     button4.grid(row=2,column=1,padx=30,pady=10)
 
-    button5 = ttk.Button(frame1,text="Exit",command=root.quit,width=20)
+    button5 = ttk.Button(frame1,text="Status Page",command=lambda:[statusPage(),frame1.destroy(),title.config(text="Stats")],width=20)
     button5.grid(row=4,column=0,columnspan=2,pady=5)
 
-def Add_New_Rentee():
+    button6 = ttk.Button(frame1,text="Exit",command=root.quit,width=20)
+    button6.grid(row=5,column=0,columnspan=2,pady=5)
+
+
+def renteeDetailPage():
+    frame2 = tk.Frame(root,bg=matchBgColor())
+    frame2.grid(row=1,column=0,pady=30)
+
+    button1 = ttk.Button(frame2,text="Add New Rentee",command=lambda:[addingNewRenteePage(),frame2.destroy(),title.config(text="Add New Rentee")],width=20)
+    button1.pack(pady=10)
+
+    button2 = ttk.Button(frame2,text="Update Leaving Date",command=lambda:[renteeLeavingDatePage(),frame2.destroy(),title.config(text="Update Leaving Date")])
+    button2.pack(pady=10)
+
+    back_btn = ttk.Button(frame2,text="Back",command= lambda: [mainFrame(),frame2.destroy(),title.config(text="Rental Management System",font=(20))],width=20)
+    back_btn.pack(pady=10)
+
+
+def renteeLeavingDatePage():
+
+    frame2 = tk.Frame(root,bg=matchBgColor())
+    frame2.grid(row=1,column=0)
+
+    rentee_name_label = tk.Label(frame2,text='Rentee Name',bg=matchBgColor())
+    rentee_name_value = ttk.Entry(frame2,width=30)
+    # positioning
+    rentee_name_label.grid(row=0,column=0,pady=5)
+    rentee_name_value.grid(row=0,column=1)
+    
+    date_of_leaving_label = tk.Label(frame2,text='Date of Leave',bg=matchBgColor())
+    date_of_leaving_value = ttk.Entry(frame2,width=30)
+    # positioning
+    date_of_leaving_label.grid(row=1,column=0,pady=5)
+    date_of_leaving_value.grid(row=1,column=1)
+
+    back_btn = ttk.Button(frame2,text="Back",command= lambda: [renteeDetailPage(),frame2.destroy(),title.config(text="Rentee Details",font=(20))],width=20)
+    back_btn.grid(row=2,column=0,padx=10,pady=10)
+
+    update_btn = ttk.Button(frame2,text="Update",width=20,command=lambda: confirm_Message_Box(RMS.updateRenteeLeavingDate,rentee_name_value,date_of_leaving_value))
+    update_btn.grid(row=2,column=1,padx=10,pady=10)
+
+
+def addingNewRenteePage():
 
     frame2 = tk.Frame(root,bg=matchBgColor())
     frame2.grid(row=1,column=0,pady=30)
@@ -100,14 +96,17 @@ def Add_New_Rentee():
     house_of_choice_radio2 = ttk.Radiobutton(frame2,variable=house_of_choice_value,text='South Pole',value='2').grid(row=5,column=1,pady=5)
     house_of_choice_label.grid(row=4,column=0)
 
-    back_btn = ttk.Button(frame2,text="Back",command= lambda: [Main_Frame(),frame2.destroy(),title.config(text="Rental Management System",font=(20))],width=20)
+    back_btn = ttk.Button(frame2,text="Back",command= lambda: [renteeDetailPage(),frame2.destroy(),title.config(text="Rentee Details",font=(20))],width=20)
     back_btn.grid(row=6,column=0,padx=10,pady=10)
 
-    update_btn = ttk.Button(frame2,text="Update",width=20,command=lambda: confirm_message_box(RMS.new_comer,rentee_name_value,date_shifted_value,advance_payment_value,house_of_choice_value))
+    update_btn = ttk.Button(frame2,text="Update",width=20,command=lambda: confirm_Message_Box(RMS.new_comer,rentee_name_value,date_shifted_value,advance_payment_value,house_of_choice_value))
     update_btn.grid(row=6,column=1,padx=10,pady=10)
 
+    # global update_ack
+    # update_ack = tk.Label(frame2,text='Designed by Aman Kisan',bg=matchBgColor())
+    # update_ack.grid(row=7,column=0,columnspan=2,pady=10)
 
-def Rental_Payment():
+def rentalPaymentPage():
 
     frame3 = tk.Frame(root,bg=matchBgColor())
     frame3.grid(row=1,column=0,pady=30)
@@ -128,14 +127,17 @@ def Rental_Payment():
     radio2 = ttk.Radiobutton(frame3,variable=payment_type_val,value='Advance Payment',text='Advance').grid(row=3,column=1)
     payment_type_lbl.grid(row=2,column=0,pady=5)
 
-    back_btn = ttk.Button(frame3,text="Back",command= lambda: [Main_Frame(),frame3.destroy(),title.config(text="Rental Management System",font=(20))],width=20)
+    back_btn = ttk.Button(frame3,text="Back",command= lambda: [mainFrame(),frame3.destroy(),title.config(text="Rental Management System",font=(20))],width=20)
     back_btn.grid(row=4,column=0,padx=10,pady=15)
 
-    update_btn = ttk.Button(frame3,text="Update",width=20,command=lambda: confirm_message_box(RMS.rent_payment,r_name_val,payment_date_val,payment_type_val))
+    update_btn = ttk.Button(frame3,text="Update",width=20,command=lambda: confirm_Message_Box(RMS.rent_payment,r_name_val,payment_date_val,payment_type_val))
     update_btn.grid(row=4,column=1,padx=10,pady=15)
 
+    # global update_ack
+    # update_ack = tk.Label(frame3,text='Designed by Aman Kisan',bg=matchBgColor())
+    # update_ack.grid(row=5,column=0,columnspan=2,pady=10)
 
-def Electricity_Use():
+def electricityUsedPage():
 
     frame4 = tk.Frame(root,bg=matchBgColor())
     frame4.grid(row=1,column=0,pady=30)
@@ -156,13 +158,17 @@ def Electricity_Use():
     date_rec_lbl.grid(row=2,column=0,pady=5,padx=10)
     date_rec_val.grid(row=2,column=1)
 
-    back_btn = ttk.Button(frame4,text="Back",command= lambda: [Main_Frame(),frame4.destroy(),title.config(text="Rental Management System",font=(20))],width=20)
+    back_btn = ttk.Button(frame4,text="Back",command= lambda: [mainFrame(),frame4.destroy(),title.config(text="Rental Management System",font=(20))],width=20)
     back_btn.grid(row=3,column=0,padx=10,pady=15)
 
-    update_btn = ttk.Button(frame4,text="Update",width=20,command=lambda: confirm_message_box(RMS.electric_use,r_name_val,c_unit_val,date_rec_val))
+    update_btn = ttk.Button(frame4,text="Update",width=20,command=lambda: confirm_Message_Box(RMS.electric_use,r_name_val,c_unit_val,date_rec_val))
     update_btn.grid(row=3,column=1,padx=10,pady=15)
 
-def Electricity_Payment():
+    # global update_ack
+    # update_ack = tk.Label(frame4,text='Designed by Aman Kisan',bg=matchBgColor())
+    # update_ack.grid(row=5,column=0,columnspan=2,pady=10)
+
+def electricityPaymentPage():
     frame5 = tk.Frame(root,bg=matchBgColor())
     frame5.grid(row=1,column=0,pady=30)
 
@@ -182,12 +188,63 @@ def Electricity_Payment():
     payment_date_lbl.grid(row=2,column=0,pady=5,padx=10)
     payment_date_val.grid(row=2,column=1)
 
-    back_btn = ttk.Button(frame5,text="Back",command= lambda: [Main_Frame(),frame5.destroy(),title.config(text="Rental Management System",font=(20))],width=20)
+    back_btn = ttk.Button(frame5,text="Back",command= lambda: [mainFrame(),frame5.destroy(),title.config(text="Rental Management System",font=(20))],width=20)
     back_btn.grid(row=3,column=0,padx=10,pady=15)
 
-    update_btn = ttk.Button(frame5,text="Update",width=20,command=lambda: confirm_message_box(RMS.electric_payment,r_name_val,amount_paid_val,payment_date_val))
+    update_btn = ttk.Button(frame5,text="Update",width=20,command=lambda: confirm_Message_Box(RMS.electric_payment,r_name_val,amount_paid_val,payment_date_val))
     update_btn.grid(row=3,column=1,padx=10,pady=15)
 
-Main_Frame()
+    # global update_ack
+    # update_ack = tk.Label(frame5,text='',bg=matchBgColor())
+    # update_ack.grid(row=5,column=0,columnspan=2,pady=10)
+
+def statusPage():
+
+    root.geometry("480x500")
+    frame1 = tk.Frame(root,bg=matchBgColor())
+    frame1.grid(row=1,column=0,pady=40)
+
+    button1 = ttk.Button(frame1,text="Check Advance Booking",command=lambda:[statusInputPage(RMS.stats.func1),frame1.destroy()])
+    button1.pack(pady=5)
+
+    button2 = ttk.Button(frame1,text="Check Number of days rentee stayed",command=lambda:[statusInputPage(RMS.stats.func2),frame1.destroy()])
+    button2.pack(pady=5)
+
+    button3 = ttk.Button(frame1,text="Check No. of days house was vacant",command=lambda:[statusInputPage(RMS.stats.func3),frame1.destroy()])
+    button3.pack(pady=5)    # this actually takes the rentee's name who last stayed in the 
+    
+    button4 = ttk.Button(frame1,text="Check No. of payments rentee made",command=lambda:[statusInputPage(RMS.stats.func4),frame1.destroy()])
+    button4.pack(pady=5)
+
+    button5 = ttk.Button(frame1,text="Check the pending electric used amount",command=lambda:[statusInputPage(RMS.stats.func5),frame1.destroy()])
+    button5.pack(pady=5)
+
+    button6 = ttk.Button(frame1,text="Check money to be returned to rentee",command=lambda:[statusInputPage(RMS.stats.func6),frame1.destroy()])
+    button6.pack(pady=5)
+
+    back_btn = ttk.Button(frame1,text="Back",command= lambda: [mainFrame(),frame1.destroy(),title.config(text="Rental Management System",font=(20))],width=20)
+    back_btn.pack(pady=5)
+
+
+def statusInputPage(func):
+
+    root.geometry("420x360")
+
+    frame2 = tk.Frame(root,bg=matchBgColor())
+    frame2.grid(row=1,column=0,pady=30)
+
+    rentee_name_label = tk.Label(frame2,text='Rentee Name',bg=matchBgColor())
+    rentee_name_value = ttk.Entry(frame2,width=30)
+    rentee_name_label.grid(row=0,column=0,pady=5)
+    rentee_name_value.grid(row=0,column=1)
+
+    back_btn = ttk.Button(frame2,text="Back",command= lambda: [statusPage(),frame2.destroy(),title.config(text="Stats",font=(20))],width=20)
+    back_btn.grid(row=1,column=0,padx=5,pady=5)
+
+    check_button = ttk.Button(frame2,text="Check",width=20,command=lambda:askStatus(func,rentee_name_value))
+    check_button.grid(row=1,column=1,padx=5,pady=5)
+
+
+mainFrame()
 
 root.mainloop()
