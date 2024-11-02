@@ -29,14 +29,8 @@ VIEW `rental_management_system`.`electricity_uses_and_payments` AS
 -- (2)
 
 CREATE VIEW `rental_management_system`.`house_not_on_rent_status` AS
-    SELECT 
-        r1.house_no,
-        r1.rentee_id as r1_rentee_id,
-        r1.rentee_name as r1_rentee_name,
-        r1.left_on,
-        r2.rentee_id as r2_rentee_id,
-        r2.rentee_name as r2_rentee_name,
-        r2.shifted_on,
-        datediff(r2.shifted_on,r1.left_on) as `Not On Rent For(in days)`
-    FROM rentee_details r1 JOIN rentee_details r2 ON r1.house_no = r2.house_no 
-    WHERE r1.rentee_id < r2.rentee_id ORDER BY r1.rentee_id;
+SELECT r1.house_no,r1.rentee_id as r1_rentee_id,r1.rentee_name as r1_rentee_name,r1.left_on,
+r2.rentee_id as r2_rentee_id,r2.rentee_name as r2_rentee_name,r2.shifted_on,
+datediff(r2.shifted_on,r1.left_on) as `Not On Rent For(in days)`
+FROM rentee_details r1 JOIN rentee_details r2 ON r1.house_no = r2.house_no 
+WHERE r1.rentee_id < r2.rentee_id ORDER BY r1.rentee_id;

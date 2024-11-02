@@ -5,8 +5,8 @@ USE `rental_management_system`;
 -- (1)
 
 DELIMITER // 
-CREATE DEFINER=`root`@`localhost` FUNCTION `ElectricityUsedAmount`(amount FLOAT,r_id INT,e_id INT) RETURNS float
-    DETERMINISTIC
+DROP FUNCTION IF EXISTS `ElectricityUsedAmount`//
+CREATE FUNCTION `ElectricityUsedAmount`(amount FLOAT,r_id INT,e_id INT) RETURNS float
     COMMENT 'returns the actual amount for electricity by setteling the unsettled amount'
 BEGIN
 	DECLARE used_amount FLOAT;
@@ -21,7 +21,9 @@ BEGIN
 END//
 
 -- (2) 
-CREATE DEFINER=`root`@`localhost` FUNCTION `ElectricityUsageStatus`(used_unit FLOAT) RETURNS varchar(6) CHARSET utf8mb4
+DROP FUNCTION IF EXISTS `ElectricityUsageStatus`//
+CREATE FUNCTION `ElectricityUsageStatus`(used_unit FLOAT) RETURNS varchar(6)
+    DETERMINISTIC
     COMMENT 'Returns LOW , MEDIUM , HIGH according to units used'
 BEGIN
 	DECLARE usage_status VARCHAR(6);
@@ -37,3 +39,15 @@ BEGIN
     -- return the usage_status
 RETURN(usage_status);
 END//
+
+
+--(3)
+DROP IF EXISTS `FetchRenteeID`//
+CREATE FUNCTION `FetchRenteeID`(R_name VARCHAR(50)) RETURNS int
+    DETERMINISTIC
+    COMMENT 'returns the rentee_id for the given rentee_name'
+BEGIN
+		RETURN(SELECT rentee_id FROM `rentee_details` WHERE rentee_name=R_name);
+END//
+
+DELIMITER ;
