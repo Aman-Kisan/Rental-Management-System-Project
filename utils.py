@@ -5,7 +5,7 @@ from tkinter import messagebox
 def setBgColor(clr):
     return lambda: clr
 
-matchBgColor = setBgColor("lightpink")        # this will the change the background color 
+matchBgColor = setBgColor("lightpink")
 
 def initiate():
     root = tk.Tk()
@@ -25,10 +25,10 @@ def initiate():
     global update_ack,status_output
     status_output = tk.Label(footer_frame,text="",bg=matchBgColor())
     status_output.pack()
-    update_ack = tk.Label(footer_frame,text='Designed by Aman Kisan',bg=matchBgColor())
+    update_ack = tk.Label(footer_frame,bg=matchBgColor())
     update_ack.pack()
 
-    return root,title
+    return root,title,update_ack,status_output
 
 def is_There_Empty(args):
     for value in args:
@@ -63,5 +63,4 @@ def askStatus(*args):
     if signal:
         func = args[0]
         value = func(args[1::])
-        print(value)
-        status_output.config(text=value,fg="green")
+        status_output.config(text=value)
