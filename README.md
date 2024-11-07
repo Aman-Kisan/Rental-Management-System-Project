@@ -2,6 +2,11 @@
 # Rental Management System Project
 It is a GUI based application build using Python and MySQL RDBMS for household rental and electricity usage management.
 
+## Contents
+- [Steps to follow](https://github.com/Aman-Kisan/Rental-Management-System-Project/edit/main/README.md#steps-to-follow)
+- [Preview](https://github.com/Aman-Kisan/Rental-Management-System-Project/edit/main/README.md#preview)
+- [How this project helped me ?](https://github.com/Aman-Kisan/Rental-Management-System-Project/edit/main/README.md#how-this-project-helped-me-?)
+
 ## Steps to follow
 
 - Install MySQL in your system then, follow the steps given in **'DB/Scripts/README.md'** to upload the tables and their records(if required), views, stored procedures and functions.
