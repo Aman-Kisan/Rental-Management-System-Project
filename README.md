@@ -5,7 +5,7 @@ It is a GUI based application build using Python and MySQL RDBMS for household r
 ## Contents
 - [Steps to follow](#Steps-to-follow)
 - [Preview](#Preview)
-- [How this project helped me ?](#How-this-project-helped-me)
+- [How this project helped me ?](#how-this-project-helped-me-)
 
 ## Steps to follow
 
