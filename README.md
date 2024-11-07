@@ -3,9 +3,9 @@
 It is a GUI based application build using Python and MySQL RDBMS for household rental and electricity usage management.
 
 ## Contents
-- [Steps to follow](https://github.com/Aman-Kisan/Rental-Management-System-Project/edit/main/README.md#steps-to-follow)
-- [Preview](https://github.com/Aman-Kisan/Rental-Management-System-Project/edit/main/README.md#preview)
-- [How this project helped me ?](https://github.com/Aman-Kisan/Rental-Management-System-Project/edit/main/README.md#how-this-project-helped-me-?)
+- [Steps to follow](#Steps-to-follow)
+- [Preview](#Preview)
+- [How this project helped me ?](#How-this-project-helped-me-?)
 
 ## Steps to follow
 
