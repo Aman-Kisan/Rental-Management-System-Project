@@ -57,4 +57,5 @@ This page is for to make entry for the payment made by the rentee for their elec
 
 - I needed a simple way to manage our house renting system i.e recording every collection made by me from the rentees for monthly rental amount or their monthly eletric usage. So, doing this using a database was more comfortable rather doing it on a notebook.
 - The development of the entire database in MySQL and the Python codes for the GUI and for connecting to SQL database, helped me have good grasp on MySQL, Python and its packages.
-- This project truely uses has all the basic concepts of MySQL and Python(obviously some advance concept of Python has been used but I don't think they are advance anymore).
+- This project truely has used the basic concepts of MySQL and Python(obviously some advance concept of Python has been used but I don't think they are advance anymore). Only a good understanding over the basics can help understand the codes.
+- I did this project totally on an experimental mind to explore as much as possible, understanding the basics.
